@@ -38,6 +38,7 @@ metadata:
     app: otel-collector
   name: otel-collector
 spec:
+  type: LoadBalancer
   selector:
     app: otel-collector
   ports:

@@ -13,4 +13,4 @@ Deploying this file as-is will create a collector that listens for jaeger traces
 1. Create a namespace for your collector: `kubectl create ns opentelemetry`
 2. Deploy the file to that namespace: `kubectl apply -f opentelemetry-collector.yaml -n opentelemetry`
 
-This will create a POD and a service that exposes the port 8080 on the cluster, point your instrumented applications traces to this endpoint.
+This will create a POD and a service that exposes the port 8080 on the cluster, point your instrumented applications traces to this endpoint. The service is being exposed as LoadBalancer, so services outside the Kubernetes cluster can reach them through the Cloud Provider LoadBalancer.
