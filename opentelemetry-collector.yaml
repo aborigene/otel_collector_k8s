@@ -10,10 +10,6 @@ data:
         protocols:
           thrift_http:
             endpoint: 0.0.0.0:8080
-#      otlp:
-#        protocols:
-#         grpc:
-#           endpoint: 0.0.0.0:4317
     processors:
       batch:
     exporters:
@@ -45,9 +41,6 @@ spec:
     - name: jaeger
       port: 8080
       targetPort: jaeger
-#    - name: grpc
-#      port: 4317
-#      targetPort: grpc
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -84,9 +77,6 @@ spec:
             - name: jaeger
               containerPort: 8080
               protocol: TCP
-#            - name: grpc
-#              containerPort: 4317
-#              protocol: TCP
           volumeMounts:
             - mountPath: /etc/opentelemetry-collector
               name: config
